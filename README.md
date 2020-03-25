@@ -1,8 +1,19 @@
 # PassWordGen
-The assignment was about using javascript to create a password generator.  
-HTML/CSS was provided so the main focus was setting up JS to allow the page 
-to interact with the user and have it generate a password.
-I created a roadmap on paper outlining the steps that are needed to get the 
-password. I was able to create the prompts and generate if/else statements but I had
-a hard time putting together a working function to assemble a password.
-My next step is to rework my functions to generate a password.
+
+## Project Goal
+
+The goal of this assignment was to create a password generator that satisfied certain conditions for length, usage of lower/upper case characters, and special characters.
+
+
+## Functionality
+
+The generator was built using javascript for functionality, and html/css for the website.  If statements were used to create alerts that allows the user to select the conditions then the generator can be ran.
+
+Link to [project](https://damparo.github.io/PassWordGen/)
+
+## Thoughts:
+
+I am happy the generator is now working.
+
+## Update:
+ no further updates.
