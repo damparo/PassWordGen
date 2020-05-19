@@ -1,42 +1,69 @@
-//this is where i begin
-alert("the length of your password should between 8 to 128 characters");
+// Create alerts to build password
 
-var pwLength = prompt("how long is your password?");
-//set up my condition for the password length
-if (pwLength <= 128 && pwLength >= 8) {
-  alert("password length approved");
-} else {
-  alert("password length denied. Please try again.");
+alert("the length of your password should be between 8 to 128 characters");
+function tryAgain (){
+alert("please try again");             
 }
-// once I add a loop, I need to kill the loop at the point whenever the else option is selected then have it begin from the beginning
-//set up my prompts
-var lowCaseCH = confirm("would you like to use lower case characters?");
 
+
+
+  var pwLength = prompt("how long is your password?");
+  if (pwLength <= 128 && pwLength >= 8) {
+    alert("password length approved");
+  } else {
+    alert("password length denied");
+    tryAgain();
+
+    // passwordLength();
+  };
+
+
+// function lowerCaseCharac () {
+
+var lowCaseCH = confirm("would you like to use lower case characters?");
 if (lowCaseCH) {
   alert("great");
 } else {
   alert("You must use at least one lower case character.");
+  tryAgain();
+  // lowerCaseCharac();
 }
+// }  
+// lowerCaseCharac();
 
+// function upperCaseCharac (){
 var uppCaseCH = confirm("would you like to use upper case characters?");
 
 if (uppCaseCH) {
   alert("great!");
 } else {
   alert("You must use at least one upper case character.");
+  tryAgain();
+  // upperCaseCharac();
 }
 
+// }
+// upperCaseCharac ();
+
+
+// function specialCharac () {
 var specialCH = confirm("would you like to use special characters?");
 
 if (specialCH) {
   alert("great!!");
 } else {
   alert("You must use at least one special character.");
+  tryAgain();
+  // specialCharac();
 }
+// }
+// specialCharac();
 
-//still figuring out the functions. Will add them here
 
 document.getElementById("generate").addEventListener("click", function() {
+
+// //still figuring out the functions. Will add them here 
+
   var alpha = [
     "a",
     "b",
@@ -160,7 +187,7 @@ document.getElementById("generate").addEventListener("click", function() {
     }
 
     createdPW.push(charSpecial[randomIndexcharSpecial]);
-  }
+  };
 
   document.getElementById("password").value = createdPW.join("");
 });
