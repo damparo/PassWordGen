@@ -6,19 +6,20 @@ alert("please try again");
 }
 
 
-
+function passwordLength (){
   var pwLength = prompt("how long is your password?");
   if (pwLength <= 128 && pwLength >= 8) {
     alert("password length approved");
   } else {
     alert("password length denied");
     tryAgain();
-
-    // passwordLength();
+    passwordLength();
   };
+}
+passwordLength();
 
 
-// function lowerCaseCharac () {
+function lowerCaseCharac () {
 
 var lowCaseCH = confirm("would you like to use lower case characters?");
 if (lowCaseCH) {
@@ -26,12 +27,12 @@ if (lowCaseCH) {
 } else {
   alert("You must use at least one lower case character.");
   tryAgain();
-  // lowerCaseCharac();
+  lowerCaseCharac();
 }
-// }  
-// lowerCaseCharac();
+}  
+lowerCaseCharac();
 
-// function upperCaseCharac (){
+function upperCaseCharac (){
 var uppCaseCH = confirm("would you like to use upper case characters?");
 
 if (uppCaseCH) {
@@ -39,14 +40,14 @@ if (uppCaseCH) {
 } else {
   alert("You must use at least one upper case character.");
   tryAgain();
-  // upperCaseCharac();
+  upperCaseCharac();
 }
 
-// }
-// upperCaseCharac ();
+}
+upperCaseCharac ();
 
 
-// function specialCharac () {
+function specialCharac () {
 var specialCH = confirm("would you like to use special characters?");
 
 if (specialCH) {
@@ -54,11 +55,12 @@ if (specialCH) {
 } else {
   alert("You must use at least one special character.");
   tryAgain();
-  // specialCharac();
+  specialCharac();
 }
-// }
-// specialCharac();
+}
+specialCharac();
 
+// code breaks after the prompts - i think the generate pw function can't read the above functions
 
 document.getElementById("generate").addEventListener("click", function() {
 
