@@ -1,70 +1,68 @@
 // Create alerts to build password
 
 alert("the length of your password should be between 8 to 128 characters");
-function tryAgain (){
-alert("please try again");             
+
+function tryAgain() {
+  var killBtn = (document.getElementById("generate").disabled = true);
+  return false;
+
 }
 
 
-function passwordLength (){
-  var pwLength = prompt("how long is your password?");
-  if (pwLength <= 128 && pwLength >= 8) {
-    alert("password length approved");
+var pwLength = prompt("how long is your password?");
+if (pwLength <= 128 && pwLength >= 8) {
+  var useThispwLength = pwLength;
+
+  alert("password length approved");
+  smallCaseCharac();
+} else {
+  alert("password length denied. Try again");
+  tryAgain();
+}
+
+function smallCaseCharac () {
+
+  var lowCaseCH = confirm("would you like to use lower case characters?");
+  if (lowCaseCH) {
+    alert("great");
+    upperCaseCharac();
   } else {
-    alert("password length denied");
+    alert("You must use at least one lower case character. Try again.");
     tryAgain();
-    passwordLength();
-  };
+  }
+} 
+
+
+
+function upperCaseCharac() {
+  var uppCaseCH = confirm("would you like to use upper case characters?");
+  if (uppCaseCH) {
+    alert("great!");
+    specialCharac();
+  } else {
+    alert("You must use at least one upper case character. Try again.");
+    tryAgain();
+  }
 }
-passwordLength();
-
-
-function lowerCaseCharac () {
-
-var lowCaseCH = confirm("would you like to use lower case characters?");
-if (lowCaseCH) {
-  alert("great");
-} else {
-  alert("You must use at least one lower case character.");
-  tryAgain();
-  lowerCaseCharac();
-}
-}  
-lowerCaseCharac();
-
-function upperCaseCharac (){
-var uppCaseCH = confirm("would you like to use upper case characters?");
-
-if (uppCaseCH) {
-  alert("great!");
-} else {
-  alert("You must use at least one upper case character.");
-  tryAgain();
-  upperCaseCharac();
-}
-
-}
-upperCaseCharac ();
 
 
 function specialCharac () {
-var specialCH = confirm("would you like to use special characters?");
+  var specialCH = confirm("would you like to use special characters?");
+  if (specialCH) {
+    alert("great!!");
+  } else {
+    alert("You must use at least one special character. Try again.");
+    tryAgain();
+  }
 
-if (specialCH) {
-  alert("great!!");
-} else {
-  alert("You must use at least one special character.");
-  tryAgain();
-  specialCharac();
 }
-}
-specialCharac();
 
-// code breaks after the prompts - i think the generate pw function can't read the above functions
+// code breaks after the prompts - i think the generate pw function can't read the above functions.  
+// pw function was not working becuase above function were out of scope
+// created new value so pw gen would only pick values from prompts that met # conditions
 
-document.getElementById("generate").addEventListener("click", function() {
-
-// //still figuring out the functions. Will add them here 
+document.getElementById("generate").addEventListener("click", function () {
+  // //still figuring out the functions. Will add them here
 
   var alpha = [
     "a",
@@ -92,7 +90,7 @@ document.getElementById("generate").addEventListener("click", function() {
     "w",
     "x",
     "y",
-    "z"
+    "z",
   ];
 
   var bigAlpha = [
@@ -121,7 +119,7 @@ document.getElementById("generate").addEventListener("click", function() {
     "W",
     "X",
     "Y",
-    "Z"
+    "Z",
   ];
 
   var charSpecial = [
@@ -150,7 +148,7 @@ document.getElementById("generate").addEventListener("click", function() {
     "{",
     "|",
     "}",
-    "~"
+    "~",
   ];
 
   var createdPW = [];
@@ -159,8 +157,8 @@ document.getElementById("generate").addEventListener("click", function() {
   // console.log(typeof(pwLength));
   // console.log("length", pwLength.length);
 
-  for (var i = 0; i < parseInt(pwLength); i++) {
-    if (createdPW.length == parseInt(pwLength)) {
+  for (var i = 0; i < parseInt(useThispwLength); i++) {
+    if (createdPW.length == parseInt(useThispwLength)) {
       break;
     }
 
@@ -169,7 +167,7 @@ document.getElementById("generate").addEventListener("click", function() {
     var randomIndexbigAlpha = Math.floor(Math.random() * bigAlpha.length);
     createdPW.push(alpha[randomIndex]);
     // we added additional letter so we have to apply condition again
-    if (createdPW.length == parseInt(pwLength)) {
+    if (createdPW.length == parseInt(useThispwLength)) {
       break;
     }
 
@@ -177,19 +175,19 @@ document.getElementById("generate").addEventListener("click", function() {
     createdPW.push(alpha[randomIndex]);
 
     // we added special character so we have to apply condition again
-    if (createdPW.length == parseInt(pwLength)) {
+    if (createdPW.length == parseInt(useThispwLength)) {
       break;
     }
 
     createdPW.push(bigAlpha[randomIndexbigAlpha]);
     // console.log(alpha[i]);
 
-    if (createdPW.length == parseInt(pwLength)) {
+    if (createdPW.length == parseInt(useThispwLength)) {
       break;
     }
 
     createdPW.push(charSpecial[randomIndexcharSpecial]);
-  };
+  }
 
   document.getElementById("password").value = createdPW.join("");
 });
