@@ -1,16 +1,21 @@
-// Create alerts to build password
+// created alert to tell user password should be "x" characters long
 
-alert("the length of your password should be between 8 to 128 characters");
+alert('the length of your password should be between 8 to 128 characters');
+
+// this function prevents the generate password btn from working if any of the conditions are not met. This is done by using the disabled property
 
 function tryAgain() {
-  var killBtn = (document.getElementById("generate").disabled = true);
+  var killBtn = (document.getElementById('generate').disabled = true);
   return false;
 
 }
 
+// asks user how long password will be
 
-var pwLength = prompt("how long is your password?");
-if (pwLength <= 128 && pwLength >= 8) {
+var pwLength = prompt('how long is your password?');
+
+//  must meet length conditions, otherwise it won't work 
+if (pwLength >= 8 && pwLength <= 128) {
   var useThispwLength = pwLength;
 
   alert("password length approved");
