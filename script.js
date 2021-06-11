@@ -165,16 +165,22 @@ document.getElementById("generate").addEventListener("click", function () {
     var randomIndex = Math.floor(Math.random() * alpha.length);
 
     var randomIndexbigAlpha = Math.floor(Math.random() * bigAlpha.length);
-    createdPW.push(alpha[randomIndex]);
-    // we added additional letter so we have to apply condition again
+
+
+    // createdPW.push(alpha[randomIndex]);
+    
+    // we added special character so we have to apply condition again
+  
     if (createdPW.length == parseInt(useThispwLength)) {
       break;
     }
 
     var randomIndexcharSpecial = Math.floor(Math.random() * charSpecial.length);
+
+
     createdPW.push(alpha[randomIndex]);
 
-    // we added special character so we have to apply condition again
+ // we added additional letter so we have to apply condition again
     if (createdPW.length == parseInt(useThispwLength)) {
       break;
     }
