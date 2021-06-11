@@ -40,6 +40,7 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  align-items: center;
 }
 
 .card-header::after {
@@ -48,6 +49,7 @@ header {
   width: 100%;
   background: #e7e9eb;
   height: 2px;
+ 
 }
 
 .card-body {
@@ -74,7 +76,7 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: rgb(207, 96, 21);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
